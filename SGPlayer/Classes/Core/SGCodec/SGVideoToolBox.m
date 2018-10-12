@@ -40,8 +40,13 @@
 
 + (BOOL)supportH265
 {
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
     if (@available(iOS 11.0, *)) {
         return VTIsHardwareDecodeSupported(kCMVideoCodecType_HEVC);
+#else
+    if (@available(macOS 10.13, *)) {
+        return VTIsHardwareDecodeSupported(kCMVideoCodecType_HEVC);
+#endif
     } else {
         return NO;
     }
@@ -53,14 +58,18 @@
     {
         self.codecType = kCMVideoCodecType_H264;
         self.preferredPixelFormat = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange;
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
         [self addNotifications];
+#endif
     }
     return self;
 }
 
 - (void)dealloc
 {
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
     [self removeNotifications];
+#endif
     [self destoryDecompressionSession];
 }
 
@@ -355,6 +364,7 @@ static CMFormatDescriptionRef CreateFormatDescription(CMVideoCodecType codec_typ
 
 #pragma mark - Notification
 
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 - (void)addNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
@@ -387,5 +397,6 @@ static CMFormatDescriptionRef CreateFormatDescription(CMVideoCodecType codec_typ
 {
     self.applicationState = [UIApplication sharedApplication].applicationState;
 }
+#endif
 
 @end

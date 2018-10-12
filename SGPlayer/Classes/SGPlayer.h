@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 #if __has_include(<SGPlayer/SGPlayer.h>)
 FOUNDATION_EXPORT double SGPlayerVersionNumber;
@@ -20,7 +19,10 @@ FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
 #import <SGPlayer/SGFrame.h>
 #import <SGPlayer/SGAudioFrame.h>
 #import <SGPlayer/SGVideoFrame.h>
+#import <SGPlayer/SGPLFImage.h>
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 #import <SGPlayer/SGVRViewport.h>
+#endif
 #import <SGPlayer/SGTime.h>
 #import <SGPlayer/SGDiscardFilter.h>
 #else
@@ -32,7 +34,10 @@ FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
 #import "SGFrame.h"
 #import "SGAudioFrame.h"
 #import "SGVideoFrame.h"
+#import "SGPLFImage.h"
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 #import "SGVRViewport.h"
+#endif
 #import "SGTime.h"
 #import "SGDiscardFilter.h"
 #endif
@@ -143,7 +148,11 @@ FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
 /**
  *  The instance of View for display visula output.
  */
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 @property (nonatomic, strong) UIView * view;
+#else
+@property (nonatomic, strong) NSView * view;
+#endif
 
 /**
  *  Default value is SGScalingModeResizeAspect.
@@ -158,7 +167,9 @@ FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
 /**
  *  VR Viewport.
  */
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 @property (nonatomic, strong) SGVRViewport * viewport;
+#endif
 
 /**
  *  Callback on main thread.
@@ -173,13 +184,13 @@ FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
 /**
  *  nullable.
  */
-- (UIImage *)originalImage;
+- (SGPLFImage *)originalImage;
 
 /**
  *  Must be called on the main thread.
  *  nullable.
  */
-- (UIImage *)snapshot;
+- (SGPLFImage *)snapshot;
 
 @end
 

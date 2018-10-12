@@ -20,7 +20,11 @@ static int gl_texture[3] =
 
 {
     GLuint _gl_texture_ids[3];
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
     CVOpenGLESTextureCacheRef _openGLESTextureCache;
+#else
+    CVOpenGLTextureCacheRef _openGLESTextureCache;
+#endif
 }
 
 @property (nonatomic, strong) SGPLFGLContext * context;
@@ -50,7 +54,11 @@ static int gl_texture[3] =
     }
     if (_openGLESTextureCache)
     {
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
         CVOpenGLESTextureCacheFlush(_openGLESTextureCache, 0);
+#else
+        CVOpenGLTextureCacheFlush(_openGLESTextureCache, 0);
+#endif
         CFRelease(_openGLESTextureCache);
         _openGLESTextureCache = NULL;
     }
@@ -68,7 +76,13 @@ static int gl_texture[3] =
 {
     if (!_openGLESTextureCache && !self.setupOpenGLESTextureCacheFailed)
     {
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
         CVReturn result = CVOpenGLESTextureCacheCreate(kCFAllocatorDefault, NULL, self.context, NULL, &_openGLESTextureCache);
+#else
+        CGLContextObj cglcntx = (CGLContextObj)[self.context CGLContextObj];
+        CGLPixelFormatObj cglPixelFormat = (__bridge CGLPixelFormatObj)SGPLFGLContextGetPixelFormat(self.context);
+        CVReturn result = CVOpenGLTextureCacheCreate(kCFAllocatorDefault, 0, cglcntx, cglPixelFormat , 0, &_openGLESTextureCache);
+#endif
         if (result != noErr)
         {
             self.setupOpenGLESTextureCacheFailed = YES;
@@ -138,7 +152,11 @@ static int gl_texture[3] =
     {
         return NO;
     }
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
     CVOpenGLESTextureCacheFlush(_openGLESTextureCache, 0);
+#else
+    CVOpenGLTextureCacheFlush(_openGLESTextureCache, 0);
+#endif
     GLsizei width = (int)CVPixelBufferGetWidth(pixelBuffer);
     GLsizei height = (int)CVPixelBufferGetHeight(pixelBuffer);
     OSType format = CVPixelBufferGetPixelFormatType(pixelBuffer);
@@ -147,7 +165,11 @@ static int gl_texture[3] =
         static int count = 2;
         int widths[2]  = {width, width / 2};
         int heights[2] = {height, height / 2};
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
         int formats[2] = {GL_RED_EXT, GL_RG_EXT};
+#else
+        int formats[2];
+#endif
         return [self uploadWithCVPixelBuffer:pixelBuffer
                                       widths:widths
                                      heights:heights
@@ -184,8 +206,13 @@ static int gl_texture[3] =
     for (int i = 0; i < count; i++)
     {
         CVReturn result;
-        CVOpenGLESTextureRef texture;
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+        CVOpenGLESTextureRef texture = NULL;
+#else
+        CVOpenGLTextureRef texture = NULL;
+#endif
         glActiveTexture(gl_texture[i]);
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
         result = CVOpenGLESTextureCacheCreateTextureFromImage(kCFAllocatorDefault,
                                                               _openGLESTextureCache,
                                                               pixelBuffer,
@@ -198,9 +225,16 @@ static int gl_texture[3] =
                                                               GL_UNSIGNED_BYTE,
                                                               i,
                                                               &texture);
+#else
+        result = CVOpenGLTextureCacheCreateTextureFromImage(kCFAllocatorDefault, _openGLESTextureCache, pixelBuffer, 0, &texture);
+#endif
         if (result == kCVReturnSuccess)
         {
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
             glBindTexture(CVOpenGLESTextureGetTarget(texture), CVOpenGLESTextureGetName(texture));
+#else
+            glBindTexture(CVOpenGLTextureGetTarget(texture), CVOpenGLTextureGetName(texture));
+#endif
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
             glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);

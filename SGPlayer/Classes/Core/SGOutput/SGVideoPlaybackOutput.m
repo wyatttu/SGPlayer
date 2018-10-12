@@ -16,7 +16,10 @@
 #import "SGGLViewport.h"
 #import "SGGLTimer.h"
 #import "SGGLView.h"
+#import "SGPLFTargets.h"
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 #import "SGVRMatrixMaker.h"
+#endif
 #import "SGMacro.h"
 
 @interface SGVideoPlaybackOutput () <NSLocking, SGGLViewDelegate>
@@ -28,7 +31,9 @@
 @property (nonatomic, strong) SGVideoFrame * currentFrame;
 @property (nonatomic, strong) SGGLTimer * renderTimer;
 @property (nonatomic, strong) SGGLDisplayLink * displayLink;
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 @property (nonatomic, strong) SGVRMatrixMaker * matrixMaker;
+#endif
 @property (nonatomic, strong) SGGLView * glView;
 @property (nonatomic, strong) SGGLModelPool * modelPool;
 @property (nonatomic, strong) SGGLProgramPool * programPool;
@@ -61,7 +66,9 @@
         self.frameQueue.shouldSortObjects = YES;
         self.programPool = [[SGGLProgramPool alloc] init];
         self.modelPool = [[SGGLModelPool alloc] init];
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
         self.matrixMaker = [[SGVRMatrixMaker alloc] init];
+#endif
         self.displayInterval = CMTimeMake(1, 60);
         self.displayIncreasedCoefficient = 2;
     }
@@ -208,6 +215,7 @@
     return 3;
 }
 
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 - (void)setViewport:(SGVRViewport *)viewport
 {
     self.matrixMaker.viewport = viewport;
@@ -217,8 +225,9 @@
 {
     return self.matrixMaker.viewport;
 }
+#endif
 
-- (UIImage *)originalImage
+- (SGPLFImage *)originalImage
 {
     [self lock];
     SGVideoFrame * videoFrame = self.currentFrame;
@@ -229,13 +238,14 @@
     }
     [videoFrame lock];
     [self unlock];
-    UIImage * image = [videoFrame image];
+    SGPLFImage * image = [videoFrame image];
     [videoFrame unlock];
     return image;
 }
 
-- (UIImage *)snapshot
+- (SGPLFImage *)snapshot
 {
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
     CGSize size = CGSizeMake(self.glView.displaySize.width,
                              self.glView.displaySize.height);
     CGRect rect = CGRectMake(0, 0, size.width, size.height);
@@ -244,6 +254,25 @@
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+    
+#else
+    CGSize size = CGSizeMake(self.glView.bounds.size.width, self.glView.bounds.size.height);
+    CGColorSpaceRef rgbColorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(nil,
+                                                 size.width,
+                                                 size.height,
+                                                 8,
+                                                 size.width * 4,
+                                                 rgbColorSpace,
+                                                 (CGBitmapInfo)kCGImageAlphaPremultipliedLast);
+    [self.glView.layer renderInContext:context];
+    CGImageRef imageRef = CGBitmapContextCreateImage(context);
+    NSImage * image = [[NSImage alloc] initWithCGImage:imageRef size:size];
+    CGColorSpaceRelease(rgbColorSpace);
+    CGContextRelease(context);
+    CGImageRelease(imageRef);
+    return image;
+#endif
 }
 
 #pragma mark - Internal
@@ -339,8 +368,12 @@
         BOOL delivery = (self.displayCallbackCount % self.displayIncreasedCoefficient) == 0;
         BOOL viewReady = (self.glView.superview && !self.glView.rendered);
         BOOL isVR = self.displayMode == SGDisplayModeVR || self.displayMode == SGDisplayModeVRBox;
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
         BOOL VRReady = (isVR && self.matrixMaker.ready);
         BOOL needRedraw = delivery && (viewReady || VRReady);
+#else
+        BOOL needRedraw = delivery && viewReady;
+#endif
         if (needRedraw)
         {
             frame = self.currentFrame;
@@ -425,10 +458,12 @@
         {
             double aspect = (float)size.width / (float)size.height;
             GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Identity;
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
             if (![self.matrixMaker matrixWithAspect:aspect matrix1:&modelViewProjectionMatrix])
             {
                 break;
             }
+#endif
             [program updateModelViewProjectionMatrix:modelViewProjectionMatrix];
             [SGGLViewport updateWithLayerSize:size scale:glView.glScale];
             [model draw];
@@ -439,10 +474,12 @@
             double aspect = (float)size.width / (float)size.height / 2;
             GLKMatrix4 modelViewProjectionMatrix1 = GLKMatrix4Identity;
             GLKMatrix4 modelViewProjectionMatrix2 = GLKMatrix4Identity;
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
             if (![self.matrixMaker matrixWithAspect:aspect matrix1:&modelViewProjectionMatrix1 matrix2:&modelViewProjectionMatrix2])
             {
                 break;
             }
+#endif
             [program updateModelViewProjectionMatrix:modelViewProjectionMatrix1];
             [SGGLViewport updateWithLayerSizeForLeft:size scale:glView.glScale];
             [model draw];

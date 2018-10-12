@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "avformat.h"
+#import "libavformat/avformat.h"
 
 void SGFFmpegSetupIfNeeded(void);
 

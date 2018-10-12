@@ -15,7 +15,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    NSSetUncaughtExceptionHandler(&exceptionHandler);
 }
 
 
@@ -23,5 +23,12 @@
     // Insert code here to tear down your application
 }
 
+void exceptionHandler(NSException *anException)
+{
+    NSLog(@"%@", [anException reason]);
+    NSLog(@"%@", [anException userInfo]);
+    
+    [NSApp terminate:nil];  // you can call exit() instead if desired
+}
 
 @end

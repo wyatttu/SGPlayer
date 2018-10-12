@@ -17,6 +17,10 @@
 
 @property (nonatomic, assign) BOOL paused;
 
+@property (nonatomic, assign) NSTimeInterval timestamp;
+@property (nonatomic, assign) NSTimeInterval duration;
+@property (nonatomic, assign) NSTimeInterval nextVSyncTimestamp;
+
 - (void)addToRunLoop:(NSRunLoop *)runloop forMode:(NSRunLoopMode)mode;
 - (void)invalidate;
 

@@ -63,7 +63,7 @@ SGGLViewportMode SGDMScaling2Viewport(SGScalingMode scalingMode)
     return SGGLViewportModeResizeAspect;
 }
 
-SGMediaType SGDMMediaTypeFF2SG(enum AVMediaType mediaType)
+SGMediaType SGDMMediaTypeFF2SG(enum AVMediaTypeX mediaType)
 {
     switch (mediaType)
     {
@@ -113,7 +113,7 @@ SGAVChromaLocation SGDMChromaLocationFF2SG(enum AVChromaLocation format)
     return (SGAVChromaLocation)format;
 }
 
-enum AVMediaType SGDMMediaTypeSG2FF(SGMediaType mediaType)
+enum AVMediaTypeX SGDMMediaTypeSG2FF(SGMediaType mediaType)
 {
     switch (mediaType)
     {

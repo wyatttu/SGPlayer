@@ -11,6 +11,7 @@
 
 #if SGPLATFORM_TARGET_OS_MAC
 
+NSTimeInterval __nextVSyncTimestamp;
 
 @interface SGPLFDisplayLink ()
 
@@ -43,6 +44,20 @@
                                        (__bridge void *)(self));
     }
     return self;
+}
+
+-(NSTimeInterval)timestamp {
+    CVTimeStamp ts;
+    CVDisplayLinkGetCurrentTime(_displayLink, &ts);
+    return ts.hostTime / 1000.0;
+}
+
+-(NSTimeInterval)duration {
+    return CVDisplayLinkGetActualOutputVideoRefreshPeriod(_displayLink);
+}
+
+- (NSTimeInterval)nextVSyncTimestamp {
+    return __nextVSyncTimestamp;
 }
 
 - (void)setPaused:(BOOL)paused
@@ -94,6 +109,16 @@ static CVReturn displayLinkCallback(CVDisplayLinkRef displayLinkRef,
                                     void * displayLinkContext)
 {
     SGPLFDisplayLink * displayLink = (__bridge SGPLFDisplayLink *)displayLinkContext;
+    
+    double d = CVDisplayLinkGetActualOutputVideoRefreshPeriod(displayLinkRef);
+    
+    CVTimeStamp c;
+    CVDisplayLinkGetCurrentTime(displayLinkRef, &c);
+    
+    NSLog(@"Timestamp %llu Duration %llu Minus %llu", now->hostTime, outputTime->hostTime, outputTime->hostTime - now->hostTime);
+    
+    __nextVSyncTimestamp = now->hostTime / 1000000000.0 + d;
+    
     if ([displayLink.target respondsToSelector:displayLink.selector]) {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"

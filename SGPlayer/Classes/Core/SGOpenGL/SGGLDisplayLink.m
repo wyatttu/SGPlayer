@@ -54,7 +54,10 @@
 
 - (BOOL)paused
 {
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
     return self.displayLink.isPaused;
+#endif
+    return self.displayLink.paused;
 }
 
 - (NSTimeInterval)timestamp
@@ -69,6 +72,7 @@
 
 - (NSTimeInterval)nextVSyncTimestamp
 {
+    NSLog(@"Timestamp %f Duration %f", self.displayLink.timestamp, self.displayLink.duration);
     return self.displayLink.timestamp + self.displayLink.duration;
 }
 

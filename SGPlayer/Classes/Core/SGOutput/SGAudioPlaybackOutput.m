@@ -11,8 +11,8 @@
 #import "SGAudioBufferFrame.h"
 #import "SGAudioFFFrame.h"
 #import "SGFFDefinesMapping.h"
-#import "swresample.h"
-#import "swscale.h"
+#import "libswresample/swresample.h"
+#import "libswscale/swscale.h"
 #import "SGError.h"
 
 @interface SGAudioPlaybackOutput () <NSLocking, SGAudioStreamPlayerDelegate>

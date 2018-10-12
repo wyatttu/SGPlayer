@@ -7,6 +7,7 @@
 //
 
 #import "SGFrame.h"
+#import "SGPLFImage.h"
 #import "SGFFDefines.h"
 
 @interface SGVideoFrame : SGFrame
@@ -28,6 +29,6 @@
 @property (nonatomic, assign) int * linesize;
 @property (nonatomic, assign) CVPixelBufferRef pixelBuffer;
 
-- (UIImage *)image;
+- (SGPLFImage *)image;
 
 @end

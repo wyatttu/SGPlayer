@@ -26,7 +26,7 @@
 {
     if ([segue.identifier isEqualToString:@"gotoPlay"]) {
         PlayerViewController * obj = (PlayerViewController *)[segue.destinationController contentViewController];
-        [obj setup];
+//        [self presentViewControllerAsModalWindow:obj];
     }
 }
 

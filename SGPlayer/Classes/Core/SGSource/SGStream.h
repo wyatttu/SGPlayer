@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SGDefines.h"
-#import "avformat.h"
+#import "libavformat/avformat.h"
 #import "SGTime.h"
 
 @interface SGStream : NSObject

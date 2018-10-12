@@ -1,24 +1,27 @@
 //
 //  PlayerViewController.m
-//  demo-macos
+//  demo-ios
 //
 //  Created by Single on 2017/3/15.
 //  Copyright © 2017年 single. All rights reserved.
 //
 
 #import "PlayerViewController.h"
-#import <SGAVPlayer/SGAVPlayer.h>
+#import <SGPlayer/SGPlayer.h>
+//#import <SGAVPlayer/SGAVPlayer.h>
 
-@interface PlayerViewController ()
+@interface PlayerViewController () <SGPlayerDelegate>
 
-@property (nonatomic, strong) SGAVPlayer * player;
-@property (weak) IBOutlet NSTextField *totalTimeLabel;
-@property (weak) IBOutlet NSTextField *currentTimeLabel;
-@property (weak) IBOutlet NSSlider *progressSilder;
-@property (weak) IBOutlet NSButton *playButton;
-@property (weak) IBOutlet NSButton *pauseButton;
-@property (weak) IBOutlet NSTextField *stateLabel;
-@property (weak) IBOutlet NSView *controlView;
+@property (nonatomic, strong) SGPlayer * player;
+@property (weak, nonatomic) IBOutlet NSView * view1;
+@property (weak, nonatomic) IBOutlet NSView * view2;
+
+@property (weak, nonatomic) IBOutlet NSTextField * stateLabel;
+@property (weak, nonatomic) IBOutlet NSSlider * progressSilder;
+@property (weak, nonatomic) IBOutlet NSTextField * currentTimeLabel;
+@property (weak, nonatomic) IBOutlet NSTextField * totalTimeLabel;
+
+@property (nonatomic, assign) BOOL progressSilderTouching;
 
 @end
 
@@ -28,33 +31,55 @@
 {
     [super viewDidLoad];
     
-    self.view.wantsLayer = YES;
-    self.view.layer.backgroundColor = [NSColor blackColor].CGColor;
-    self.controlView.wantsLayer = YES;
-    self.controlView.layer.backgroundColor = [NSColor colorWithWhite:0 alpha:0.5].CGColor;
-    self.progressSilder.trackFillColor = [NSColor yellowColor];
-}
-
-- (void)setup
-{
-    self.player = [[SGAVPlayer alloc] init];
-    [self sg_registerNotificationForPlayer:self.player
-                       playbackStateAction:@selector(playbackStateAction:)
-                           loadStateAction:@selector(loadStateAction:)
-                         currentTimeAction:@selector(currentTimeAction:)
-                              loadedAction:@selector(loadedTimeAction:)
-                               errorAction:@selector(errorAction:)];
-    [self.view addSubview:self.player.view positioned:NSWindowBelow relativeTo:nil];
+    NSURL * contentURL1 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"i-see-fire" ofType:@"mp4"]];
+    NSURL * contentURL2 = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"google-help-vr" ofType:@"mp4"]];
     
-    NSURL * contentURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"i-see-fire" ofType:@"mp4"]];
-    //    NSURL * contentURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"google-help-vr" ofType:@"mp4"]];
-    [self.player replaceWithContentURL:contentURL];
+    NSMutableArray * assets = [NSMutableArray array];
+    for (int i = 0; i < 1; i++)
+    {
+        SGURLAsset * asset1 = [[SGURLAsset alloc] initWithURL:contentURL1];
+        //        asset1.scale = CMTimeMake(1, 3);
+        //        SGURLAsset * asset2 = [[SGURLAsset alloc] initWithURL:contentURL2];
+        [assets addObject:asset1];
+        //        [assets addObject:asset2];
+    }
+    SGConcatAsset * asset = [[SGConcatAsset alloc] initWithAssets:assets];
+    
+    self.player = [[SGPlayer alloc] init];
+    self.player.delegate = self;
+    self.player.view = self.view1;
+    
+    //    self.player.hardwareDecodeH264 = NO;
+    
+    SGDiscardFilter * discardFilter = [[SGDiscardFilter alloc] init];
+    discardFilter.minimumInterval = CMTimeMake(1, 30);
+    
+    //    [self.player setCodecDiscardPacketFilter:^BOOL(CMSampleTimingInfo timingInfo, NSUInteger index, BOOL key) {
+    //        if (index == 0) {
+    //            [discardFilter flush];
+    //        }
+    //        return [discardFilter discardWithTimeStamp:timingInfo.decodeTimeStamp];
+    //    }];
+    
+    //    [self.player setDisplayDiscardFilter:^BOOL(CMSampleTimingInfo timingInfo, NSUInteger index) {
+    //        if (index == 0) {
+    //            [discardFilter flush];
+    //        }
+    //        return [discardFilter discardWithTimeStamp:timingInfo.presentationTimeStamp];
+    //    }];
+    
+    [self.player setDisplayRenderCallback:^(SGVideoFrame * frame) {
+        //        NSLog(@"Render : %f", CMTimeGetSeconds(frame.timeStamp));
+    }];
+    
+    [self.player replaceWithAsset:asset];
+    [self.player play];
 }
 
-- (void)viewDidLayout
-{
-    self.player.view.frame = self.view.bounds;
-}
+//-(void)viewDidLayout {
+//    [super viewDidLayout];
+//    self.player.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
+//}
 
 - (IBAction)play:(id)sender
 {
@@ -66,84 +91,88 @@
     [self.player pause];
 }
 
-- (void)playbackStateAction:(NSNotification *)notification
+- (IBAction)progressTouchDown:(id)sender
 {
-    SGPlaybackStateModel * playbackStateModel = [notification.userInfo sg_playbackStateModel];
-    
-    NSString * text;
-    switch (playbackStateModel.current) {
-        case SGPlaybackStateNone:
-            text = @"Idle";
-            break;
-        case SGPlaybackStatePlaying:
-            text = @"Playing";
-            break;
-        case SGPlaybackStateSeeking:
-            text = @"Seeking";
-            break;
-        case SGPlaybackStatePaused:
-            text = @"Paused";
-            break;
-        case SGPlaybackStateInterrupted:
-            text = @"Interrupted";
-            break;
-        case SGPlaybackStateStopped:
-            text = @"Stopped";
-            break;
-        case SGPlaybackStateFinished:
-            text = @"Finished";
-            break;
-        case SGPlaybackStateFailed:
-            text = @"Failed";
-            break;
+    self.progressSilderTouching = YES;
+}
+
+- (IBAction)progressTouchUp:(id)sender
+{
+    self.progressSilderTouching = NO;
+    CMTime time = CMTimeMultiplyByFloat64(self.player.duration, self.progressSilder.doubleValue);
+    [self.player seekToTime:time];
+}
+
+- (IBAction)progressValueChanged:(id)sender
+{
+    CMTime time = CMTimeMultiplyByFloat64(self.player.duration, self.progressSilder.doubleValue);
+    [self.player seekToTime:time];
+}
+
+#pragma mark - SGPlayerDelegate
+
+- (void)player:(SGPlayer *)player didChangeState:(SGStateOption)option
+{
+    if (option & SGStateOptionPrepare)
+    {
+        NSLog(@"prepareState, %ld", player.prepareState);
     }
-    self.stateLabel.stringValue = text;
-    
-    NSLog(@"%s, %ld", __func__, playbackStateModel.current);
-}
-
-- (void)loadStateAction:(NSNotification *)notification
-{
-    SGPlaybackStateModel * loadStateModel = [notification.userInfo sg_playbackStateModel];
-    
-    NSLog(@"%s, %ld", __func__, loadStateModel.current);
-    
-    if (loadStateModel.current == SGLoadingStatePlayable && self.player.playbackState == SGLoadingStateNone) {
-        [self.player play];
+    else if (option & SGStateOptionPlayback)
+    {
+        NSLog(@"playbackState, %ld", player.playbackState);
+        switch (player.playbackState)
+        {
+            case SGPlaybackStateNone:
+                self.stateLabel.stringValue = @"Idle";
+                break;
+            case SGPlaybackStatePlaying:
+                self.stateLabel.stringValue = @"Playing";
+                break;
+            case SGPlaybackStatePaused:
+                self.stateLabel.stringValue = @"Paused";
+                break;
+            case SGPlaybackStateFinished:
+                self.stateLabel.stringValue = @"Finished";
+                break;
+        }
+    }
+    else if (option & SGStateOptionLoading)
+    {
+        NSLog(@"loadingState, %ld", player.loadingState);
     }
 }
 
-- (void)currentTimeAction:(NSNotification *)notification
+- (void)player:(SGPlayer *)player didChangeTime:(SGTimeOption)option
 {
-    SGTimeModel * currentTimeModel = [notification.userInfo sg_currentTimeModel];
-    
-    NSLog(@"%s, %f", __func__, currentTimeModel.current);
-    
-    self.progressSilder.doubleValue = currentTimeModel.percent;
-    self.currentTimeLabel.stringValue = [self timeStringFromSeconds:currentTimeModel.current];
-    self.totalTimeLabel.stringValue = [self timeStringFromSeconds:currentTimeModel.duration];
+    if (option & SGTimeOptionPlayback)
+    {
+        CMTime playbackTime = player.playbackTime;
+        CMTime duration = player.duration;
+        if (!self.progressSilderTouching)
+        {
+            self.progressSilder.doubleValue = CMTimeGetSeconds(playbackTime) / CMTimeGetSeconds(duration);
+        }
+        self.currentTimeLabel.stringValue = [self timeStringFromSeconds:CMTimeGetSeconds(playbackTime)];
+        self.totalTimeLabel.stringValue = [self timeStringFromSeconds:CMTimeGetSeconds(duration)];
+    }
+    else if (option & SGTimeOptionLoaded)
+    {
+        
+    }
+    else if (option & SGTimeOptionDuration)
+    {
+        
+    }
 }
 
-- (void)loadedTimeAction:(NSNotification *)notification
+- (void)player:(SGPlayer *)player didFailed:(NSError *)error
 {
-    SGTimeModel * loadedTimeModel = [notification.userInfo sg_loadedTimeModel];
-    NSLog(@"%s, %f", __func__, loadedTimeModel.current);
-}
-
-- (void)errorAction:(NSNotification *)notification
-{
-    NSError * error = [notification.userInfo sg_error];
     NSLog(@"%s, %@", __func__, error);
 }
 
 - (NSString *)timeStringFromSeconds:(CGFloat)seconds
 {
     return [NSString stringWithFormat:@"%ld:%.2ld", (long)seconds / 60, (long)seconds % 60];
-}
-
-- (void)dealloc
-{
-    [self sg_removeNotificationForPlayer:self.player];
 }
 
 @end

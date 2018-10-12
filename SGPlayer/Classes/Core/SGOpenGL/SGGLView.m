@@ -34,9 +34,15 @@
     [self destroyFramebuffer];
 }
 
+#if SGPLATFORM_TARGET_OS_MAC
+-(void)layout
+{
+    [super layout];
+#else
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+#endif
     SGGLSize layerSize = {CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)};
     if (layerSize.width != self.displaySize.width ||
         layerSize.height != self.displaySize.width)

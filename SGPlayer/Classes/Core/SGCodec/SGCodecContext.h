@@ -10,7 +10,7 @@
 #import "SGFFFrame.h"
 #import "SGPacket.h"
 #import "SGFrame.h"
-#import "avcodec.h"
+#import "libavcodec/avcodec.h"
 
 @interface SGCodecContext : NSObject
 

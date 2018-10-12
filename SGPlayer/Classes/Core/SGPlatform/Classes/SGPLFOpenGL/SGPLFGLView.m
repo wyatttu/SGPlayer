@@ -24,6 +24,15 @@
     return self.openGLContext;
 }
 
+- (void)renderbufferStorage
+{
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+    [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.glLayer];
+#else
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, (int)self.frame.size.width, (int)self.frame.size.width);
+#endif
+}
+
 - (void)present
 {
     [self.openGLContext flushBuffer];
@@ -62,7 +71,11 @@
 
 - (void)renderbufferStorage
 {
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
     [self.context renderbufferStorage:GL_RENDERBUFFER fromDrawable:self.glLayer];
+#else
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, (int)self.frame.size.width, (int)self.frame.size.width);
+#endif
 }
 
 - (void)present
@@ -71,6 +84,5 @@
 }
 
 @end
-
 
 #endif

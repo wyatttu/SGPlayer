@@ -32,7 +32,11 @@
 @property (nonatomic, assign, readonly) CMTime loadedTime;
 @property (nonatomic, assign) float volume;
 @property (nonatomic, assign) CMTime deviceDelay;
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 @property (nonatomic, strong) UIView * view;
+#else
+@property (nonatomic, strong) NSView * view;
+#endif
 @property (nonatomic, assign) SGScalingMode scalingMode;
 @property (nonatomic, assign) SGDisplayMode displayMode;
 @property (nonatomic, strong) SGVRViewport * viewport;
@@ -188,7 +192,9 @@
     videoOutput.displayMode = self.displayMode;
     videoOutput.discardFilter = self.displayDiscardFilter;
     videoOutput.renderCallback = self.displayRenderCallback;
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
     videoOutput.viewport = self.viewport;
+#endif
     self.videoOutput = videoOutput;
     
     SGSessionConfiguration * configuration = [[SGSessionConfiguration alloc] init];
@@ -516,8 +522,13 @@
 
 #pragma mark - Video
 
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 - (void)setView:(UIView *)view
 {
+#else
+- (void)setView:(NSView *)view
+{
+#endif
     if (_view != view)
     {
         _view = view;
@@ -542,7 +553,7 @@
         self.videoOutput.displayMode = displayMode;
     }
 }
-
+#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
 - (void)setViewport:(SGVRViewport *)viewport
 {
     if (_viewport != viewport)
@@ -551,6 +562,7 @@
         self.videoOutput.viewport = viewport;
     }
 }
+#endif
 
 - (void)setDisplayDiscardFilter:(BOOL (^)(CMSampleTimingInfo, NSUInteger))displayDiscardFilter
 {
@@ -570,12 +582,12 @@
     }
 }
 
-- (UIImage *)originalImage
+- (SGPLFImage *)originalImage
 {
     return self.videoOutput.originalImage;
 }
 
-- (UIImage *)snapshot
+- (SGPLFImage *)snapshot
 {
     return self.videoOutput.snapshot;
 }

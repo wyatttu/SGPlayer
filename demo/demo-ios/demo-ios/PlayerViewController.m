@@ -41,9 +41,9 @@
     {
         SGURLAsset * asset1 = [[SGURLAsset alloc] initWithURL:contentURL1];
 //        asset1.scale = CMTimeMake(1, 3);
-        SGURLAsset * asset2 = [[SGURLAsset alloc] initWithURL:contentURL2];
+//        SGURLAsset * asset2 = [[SGURLAsset alloc] initWithURL:contentURL2];
         [assets addObject:asset1];
-        [assets addObject:asset2];
+//        [assets addObject:asset2];
     }
     SGConcatAsset * asset = [[SGConcatAsset alloc] initWithAssets:assets];
     

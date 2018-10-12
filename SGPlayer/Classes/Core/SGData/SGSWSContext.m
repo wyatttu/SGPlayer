@@ -8,7 +8,7 @@
 
 #import "SGSWSContext.h"
 #import "SGFFDefinesMapping.h"
-#import "swscale.h"
+#import "libswscale/swscale.h"
 
 @interface SGSWSContext ()
 

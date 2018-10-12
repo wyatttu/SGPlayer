@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SGPacket.h"
 #import "SGFrame.h"
-#import "avcodec.h"
+#import "libavcodec/avcodec.h"
 
 @interface SGVideoToolBox : NSObject
 

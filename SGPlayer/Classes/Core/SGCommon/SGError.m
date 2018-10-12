@@ -7,7 +7,7 @@
 //
 
 #import "SGError.h"
-#import "avformat.h"
+#import "libavformat/avformat.h"
 
 NSError * SGEGetError(int result)
 {

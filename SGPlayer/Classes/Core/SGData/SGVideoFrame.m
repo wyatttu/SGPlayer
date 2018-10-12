@@ -9,8 +9,8 @@
 #import "SGVideoFrame.h"
 #import "SGSWSContext.h"
 #import "SGPlatform.h"
-#import "imgutils.h"
-#import "frame.h"
+#import "libavutil/imgutils.h"
+#import "libavutil/frame.h"
 #import "SGTime.h"
 
 @interface SGVideoFrame ()
@@ -73,7 +73,7 @@
     _pixelBuffer = pixelBuffer;
 }
 
-- (UIImage *)image
+- (SGPLFImage *)image
 {
     if (self.width == 0 ||
         self.height == 0 ||
