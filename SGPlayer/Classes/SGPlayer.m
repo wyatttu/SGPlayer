@@ -39,7 +39,9 @@
 #endif
 @property (nonatomic, assign) SGScalingMode scalingMode;
 @property (nonatomic, assign) SGDisplayMode displayMode;
+#if SGPLATFORM_TARGET_OS_IPHONE
 @property (nonatomic, strong) SGVRViewport * viewport;
+#endif
 @property (nonatomic, copy) BOOL (^displayDiscardFilter)(CMSampleTimingInfo timingInfo, NSUInteger index);
 @property (nonatomic, copy) void (^displayRenderCallback)(SGVideoFrame * frame);
 @property (nonatomic, copy) NSDictionary * formatContextOptions;
@@ -85,7 +87,9 @@
         self.deviceDelay = CMTimeMake(1, 20);
         self.scalingMode = SGScalingModeResizeAspect;
         self.displayMode = SGDisplayModePlane;
+#if SGPLATFORM_TARGET_OS_IPHONE
         self.viewport = [[SGVRViewport alloc] init];
+#endif
         self.formatContextOptions = @{@"user-agent" : @"SGPlayer",
                                       @"timeout" : @(20 * 1000 * 1000),
                                       @"reconnect" : @(1)};
@@ -192,7 +196,7 @@
     videoOutput.displayMode = self.displayMode;
     videoOutput.discardFilter = self.displayDiscardFilter;
     videoOutput.renderCallback = self.displayRenderCallback;
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
     videoOutput.viewport = self.viewport;
 #endif
     self.videoOutput = videoOutput;
@@ -553,7 +557,7 @@
         self.videoOutput.displayMode = displayMode;
     }
 }
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 - (void)setViewport:(SGVRViewport *)viewport
 {
     if (_viewport != viewport)

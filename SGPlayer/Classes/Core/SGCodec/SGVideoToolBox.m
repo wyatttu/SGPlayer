@@ -58,7 +58,7 @@
     {
         self.codecType = kCMVideoCodecType_H264;
         self.preferredPixelFormat = kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange;
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
         [self addNotifications];
 #endif
     }
@@ -67,7 +67,7 @@
 
 - (void)dealloc
 {
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
     [self removeNotifications];
 #endif
     [self destoryDecompressionSession];
@@ -364,7 +364,7 @@ static CMFormatDescriptionRef CreateFormatDescription(CMVideoCodecType codec_typ
 
 #pragma mark - Notification
 
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 - (void)addNotifications
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];

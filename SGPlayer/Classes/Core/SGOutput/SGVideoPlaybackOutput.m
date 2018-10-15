@@ -17,7 +17,7 @@
 #import "SGGLTimer.h"
 #import "SGGLView.h"
 #import "SGPLFTargets.h"
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 #import "SGVRMatrixMaker.h"
 #endif
 #import "SGMacro.h"
@@ -31,7 +31,7 @@
 @property (nonatomic, strong) SGVideoFrame * currentFrame;
 @property (nonatomic, strong) SGGLTimer * renderTimer;
 @property (nonatomic, strong) SGGLDisplayLink * displayLink;
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 @property (nonatomic, strong) SGVRMatrixMaker * matrixMaker;
 #endif
 @property (nonatomic, strong) SGGLView * glView;
@@ -66,7 +66,7 @@
         self.frameQueue.shouldSortObjects = YES;
         self.programPool = [[SGGLProgramPool alloc] init];
         self.modelPool = [[SGGLModelPool alloc] init];
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
         self.matrixMaker = [[SGVRMatrixMaker alloc] init];
 #endif
         self.displayInterval = CMTimeMake(1, 60);
@@ -215,7 +215,7 @@
     return 3;
 }
 
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 - (void)setViewport:(SGVRViewport *)viewport
 {
     self.matrixMaker.viewport = viewport;
@@ -368,7 +368,7 @@
         BOOL delivery = (self.displayCallbackCount % self.displayIncreasedCoefficient) == 0;
         BOOL viewReady = (self.glView.superview && !self.glView.rendered);
         BOOL isVR = self.displayMode == SGDisplayModeVR || self.displayMode == SGDisplayModeVRBox;
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
         BOOL VRReady = (isVR && self.matrixMaker.ready);
         BOOL needRedraw = delivery && (viewReady || VRReady);
 #else
@@ -458,7 +458,7 @@
         {
             double aspect = (float)size.width / (float)size.height;
             GLKMatrix4 modelViewProjectionMatrix = GLKMatrix4Identity;
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
             if (![self.matrixMaker matrixWithAspect:aspect matrix1:&modelViewProjectionMatrix])
             {
                 break;
@@ -474,7 +474,7 @@
             double aspect = (float)size.width / (float)size.height / 2;
             GLKMatrix4 modelViewProjectionMatrix1 = GLKMatrix4Identity;
             GLKMatrix4 modelViewProjectionMatrix2 = GLKMatrix4Identity;
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
             if (![self.matrixMaker matrixWithAspect:aspect matrix1:&modelViewProjectionMatrix1 matrix2:&modelViewProjectionMatrix2])
             {
                 break;

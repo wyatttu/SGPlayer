@@ -2,8 +2,8 @@
 //  AppDelegate.m
 //  demo-tvos
 //
-//  Created by Single on 2017/7/8.
-//  Copyright © 2017年 Single. All rights reserved.
+//  Created by Tu Duong Quyet on 10/15/18.
+//  Copyright © 2018 Samsung Electronics Co., Ltd. All rights reserved.
 //
 
 #import "AppDelegate.h"

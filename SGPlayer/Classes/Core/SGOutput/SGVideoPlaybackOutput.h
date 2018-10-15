@@ -9,7 +9,9 @@
 #import "SGOutput.h"
 #import "SGPlatform.h"
 #import "SGVideoFrame.h"
+#if SGPLATFORM_TARGET_OS_IPHONE
 #import "SGVRViewport.h"
+#endif
 #import "SGPlaybackTimeSync.h"
 
 @interface SGVideoPlaybackOutput : NSObject <SGOutput>
@@ -20,7 +22,7 @@
 @property (nonatomic, strong) SGPLFView * view;
 @property (nonatomic, assign) SGScalingMode scalingMode;
 @property (nonatomic, assign) SGDisplayMode displayMode;
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 @property (nonatomic, strong) SGVRViewport * viewport;
 #endif
 @property (nonatomic, assign) CMTime displayInterval;

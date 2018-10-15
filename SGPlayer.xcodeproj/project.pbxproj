@@ -116,7 +116,7 @@
 		9C2536551FAB199500BBFA5C /* SGPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C25364F1FAB199500BBFA5C /* SGPlayer.m */; };
 		9C2C55932015911600131E15 /* SGObjectPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2C55912015911600131E15 /* SGObjectPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C2C55942015911600131E15 /* SGObjectPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2C55912015911600131E15 /* SGObjectPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C2C55952015911600131E15 /* SGObjectPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2C55912015911600131E15 /* SGObjectPool.h */; };
+		9C2C55952015911600131E15 /* SGObjectPool.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C2C55912015911600131E15 /* SGObjectPool.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C2C55962015911600131E15 /* SGObjectPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C55922015911600131E15 /* SGObjectPool.m */; };
 		9C2C55972015911600131E15 /* SGObjectPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C55922015911600131E15 /* SGObjectPool.m */; };
 		9C2C55982015911600131E15 /* SGObjectPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2C55922015911600131E15 /* SGObjectPool.m */; };
@@ -165,7 +165,7 @@
 		9C37487C2135521D00572166 /* SGSWSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C37487A2135521D00572166 /* SGSWSContext.m */; };
 		9C389ACC20108C2E003259FF /* SGFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C389ACB20108C2E003259FF /* SGFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C389ACD20108C2E003259FF /* SGFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C389ACB20108C2E003259FF /* SGFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9C389ACE20108C2E003259FF /* SGFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C389ACB20108C2E003259FF /* SGFrame.h */; };
+		9C389ACE20108C2E003259FF /* SGFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C389ACB20108C2E003259FF /* SGFrame.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C3FB66A20E32EA5003442EE /* SGGLTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C3FB66820E32EA5003442EE /* SGGLTimer.h */; };
 		9C3FB66B20E32EA5003442EE /* SGGLTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C3FB66820E32EA5003442EE /* SGGLTimer.h */; };
 		9C3FB66C20E32EA5003442EE /* SGGLTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C3FB66820E32EA5003442EE /* SGGLTimer.h */; };
@@ -213,11 +213,7 @@
 		9C6E514F2018C6C100C87C54 /* SGGLModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6E514D2018C6C100C87C54 /* SGGLModel.h */; };
 		9C6E51502018C6C100C87C54 /* SGGLModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C6E514D2018C6C100C87C54 /* SGGLModel.h */; };
 		9C8D26592019E1AC002770FA /* SGGLViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D26572019E1AC002770FA /* SGGLViewport.h */; };
-		9C8D265A2019E1AC002770FA /* SGGLViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D26572019E1AC002770FA /* SGGLViewport.h */; };
-		9C8D265B2019E1AC002770FA /* SGGLViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D26572019E1AC002770FA /* SGGLViewport.h */; };
 		9C8D265C2019E1AC002770FA /* SGGLViewport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D26582019E1AC002770FA /* SGGLViewport.m */; };
-		9C8D265D2019E1AC002770FA /* SGGLViewport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D26582019E1AC002770FA /* SGGLViewport.m */; };
-		9C8D265E2019E1AC002770FA /* SGGLViewport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D26582019E1AC002770FA /* SGGLViewport.m */; };
 		9C8D26612019F297002770FA /* SGGLTextureUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D265F2019F297002770FA /* SGGLTextureUploader.h */; };
 		9C8D26622019F297002770FA /* SGGLTextureUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D265F2019F297002770FA /* SGGLTextureUploader.h */; };
 		9C8D26632019F297002770FA /* SGGLTextureUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D265F2019F297002770FA /* SGGLTextureUploader.h */; };
@@ -256,7 +252,7 @@
 		9C9599FF211AE7AF00E67565 /* SGFFDefinesMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D2229201B1DA2005147FB /* SGFFDefinesMapping.m */; };
 		9CA0F56420E0E24000501478 /* SGDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CA0F56220E0E24000501478 /* SGDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CA0F56520E0E24000501478 /* SGDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CA0F56220E0E24000501478 /* SGDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9CA0F56620E0E24000501478 /* SGDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CA0F56220E0E24000501478 /* SGDefines.h */; };
+		9CA0F56620E0E24000501478 /* SGDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CA0F56220E0E24000501478 /* SGDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CA3CDB420E1F74300B852D0 /* SGFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3CDB320E1F74300B852D0 /* SGFrame.m */; };
 		9CA3CDB520E1F74300B852D0 /* SGFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3CDB320E1F74300B852D0 /* SGFrame.m */; };
 		9CA3CDB620E1F74300B852D0 /* SGFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3CDB320E1F74300B852D0 /* SGFrame.m */; };
@@ -285,11 +281,7 @@
 		9CA3CDE320E2320F00B852D0 /* SGAudioBufferFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3CDDE20E2320F00B852D0 /* SGAudioBufferFrame.m */; };
 		9CA3CDE420E2320F00B852D0 /* SGAudioBufferFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA3CDDE20E2320F00B852D0 /* SGAudioBufferFrame.m */; };
 		9CAAC99F2133A6800065E364 /* SGVRViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CAAC99D2133A6800065E364 /* SGVRViewport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9CAAC9A02133A6800065E364 /* SGVRViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CAAC99D2133A6800065E364 /* SGVRViewport.h */; };
-		9CAAC9A12133A6800065E364 /* SGVRViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CAAC99D2133A6800065E364 /* SGVRViewport.h */; };
 		9CAAC9A22133A6800065E364 /* SGVRViewport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAAC99E2133A6800065E364 /* SGVRViewport.m */; };
-		9CAAC9A32133A6800065E364 /* SGVRViewport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAAC99E2133A6800065E364 /* SGVRViewport.m */; };
-		9CAAC9A42133A6800065E364 /* SGVRViewport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAAC99E2133A6800065E364 /* SGVRViewport.m */; };
 		9CB1F09F20178B0E00102A69 /* SGPLFGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1F09D20178B0D00102A69 /* SGPLFGLView.m */; };
 		9CB1F0A020178B0E00102A69 /* SGPLFGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1F09D20178B0D00102A69 /* SGPLFGLView.m */; };
 		9CB1F0A120178B0E00102A69 /* SGPLFGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CB1F09D20178B0D00102A69 /* SGPLFGLView.m */; };
@@ -436,7 +428,23 @@
 		9CF63FD3211D9359001B2684 /* SGConcatSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF63FD1211D9359001B2684 /* SGConcatSource.m */; };
 		9CF9A019212D1AB0008178BC /* SGFFDefines-4.0.2.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF9A018212D1AB0008178BC /* SGFFDefines-4.0.2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9CF9A01A212D1AB0008178BC /* SGFFDefines-4.0.2.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF9A018212D1AB0008178BC /* SGFFDefines-4.0.2.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9CF9A01B212D1AB0008178BC /* SGFFDefines-4.0.2.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF9A018212D1AB0008178BC /* SGFFDefines-4.0.2.h */; };
+		9CF9A01B212D1AB0008178BC /* SGFFDefines-4.0.2.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CF9A018212D1AB0008178BC /* SGFFDefines-4.0.2.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2685ECD217471E400B5ADF1 /* SGDiscardFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6C76002141323900970427 /* SGDiscardFilter.m */; };
+		E2685ECE217471E400B5ADF1 /* SGAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF63FC1211D8E33001B2684 /* SGAsset.m */; };
+		E2685ECF217471E400B5ADF1 /* SGURLAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF63FCD211D8FAF001B2684 /* SGURLAsset.m */; };
+		E2685ED0217471E400B5ADF1 /* SGConcatAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF63FC8211D8F5C001B2684 /* SGConcatAsset.m */; };
+		E2685ED1217471E400B5ADF1 /* SGConcatSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF63FD1211D9359001B2684 /* SGConcatSource.m */; };
+		E2685ED2217471E400B5ADF1 /* SGFormatContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C620D6821215EEF00845F2A /* SGFormatContext.m */; };
+		E2685ED3217471E400B5ADF1 /* SGAudioDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3082CF212521AB00B44298 /* SGAudioDecoder.m */; };
+		E2685ED4217471E400B5ADF1 /* SGVideoDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3082C2212518EC00B44298 /* SGVideoDecoder.m */; };
+		E2685ED5217471E400B5ADF1 /* SGCodecContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3082C621251AC200B44298 /* SGCodecContext.m */; };
+		E2685ED6217471E400B5ADF1 /* SGVideoToolBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3082CA21251ACD00B44298 /* SGVideoToolBox.m */; };
+		E2685ED7217471E400B5ADF1 /* SGSWSContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C37487A2135521D00572166 /* SGSWSContext.m */; };
+		E2685ED8217471E400B5ADF1 /* SGGLBGRAProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C13638D213934030025C72B /* SGGLBGRAProgram.m */; };
+		E2685F2521747C7100B5ADF1 /* SGGLViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D26572019E1AC002770FA /* SGGLViewport.h */; };
+		E2685F2621747C7100B5ADF1 /* SGGLViewport.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D26572019E1AC002770FA /* SGGLViewport.h */; };
+		E2685F2721747C7600B5ADF1 /* SGGLViewport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D26582019E1AC002770FA /* SGGLViewport.m */; };
+		E2685F2821747C7600B5ADF1 /* SGGLViewport.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C8D26582019E1AC002770FA /* SGGLViewport.m */; };
 		E2780D3C216B6B49003E9D80 /* SGDiscardFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C6C76002141323900970427 /* SGDiscardFilter.m */; };
 		E2780D3D216B6B49003E9D80 /* SGAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF63FC1211D8E33001B2684 /* SGAsset.m */; };
 		E2780D3E216B6B49003E9D80 /* SGURLAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CF63FCD211D8FAF001B2684 /* SGURLAsset.m */; };
@@ -464,7 +472,6 @@
 		E2780D56216B6B56003E9D80 /* SGGLDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C8D26532019DC7F002770FA /* SGGLDefines.h */; };
 		E2780D57216B6B56003E9D80 /* SGGLBGRAProgram.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C13638C213934030025C72B /* SGGLBGRAProgram.h */; };
 		E2780D58216B6B56003E9D80 /* SGFFDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C3082D42125448600B44298 /* SGFFDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E2780D59216B6B57003E9D80 /* SGVRMatrixMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C03E5EE212E645B001F0E1B /* SGVRMatrixMaker.h */; };
 		E2780D5A216B6B57003E9D80 /* SGMotionSensor.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C03E5EA212E616B001F0E1B /* SGMotionSensor.h */; };
 		E2C5D02021705DC60096708D /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF9A020212D1D34008178BC /* libavcodec.a */; };
 		E2C5D02121705DC60096708D /* libavfilter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CF9A022212D1D35008178BC /* libavfilter.a */; };
@@ -558,15 +565,15 @@
 		9C47935B1E71403500AD4289 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-macOS/libssl.a"; sourceTree = "<group>"; };
 		9C47935C1E71403500AD4289 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-macOS/libswresample.a"; sourceTree = "<group>"; };
 		9C47935D1E71403500AD4289 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-macOS/libswscale.a"; sourceTree = "<group>"; };
-		9C4793671E71404A00AD4289 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libavcodec.a"; sourceTree = "<group>"; };
-		9C4793681E71404A00AD4289 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libavdevice.a"; sourceTree = "<group>"; };
-		9C4793691E71404A00AD4289 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libavfilter.a"; sourceTree = "<group>"; };
-		9C47936A1E71404A00AD4289 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libavformat.a"; sourceTree = "<group>"; };
-		9C47936B1E71404A00AD4289 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libavutil.a"; sourceTree = "<group>"; };
-		9C47936C1E71404A00AD4289 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libcrypto.a"; sourceTree = "<group>"; };
-		9C47936D1E71404A00AD4289 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libssl.a"; sourceTree = "<group>"; };
-		9C47936E1E71404A00AD4289 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libswresample.a"; sourceTree = "<group>"; };
-		9C47936F1E71404A00AD4289 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = "SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS/libswscale.a"; sourceTree = "<group>"; };
+		9C4793671E71404A00AD4289 /* libavcodec.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavcodec.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libavcodec.a"; sourceTree = "<group>"; };
+		9C4793681E71404A00AD4289 /* libavdevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavdevice.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libavdevice.a"; sourceTree = "<group>"; };
+		9C4793691E71404A00AD4289 /* libavfilter.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavfilter.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libavfilter.a"; sourceTree = "<group>"; };
+		9C47936A1E71404A00AD4289 /* libavformat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavformat.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libavformat.a"; sourceTree = "<group>"; };
+		9C47936B1E71404A00AD4289 /* libavutil.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libavutil.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libavutil.a"; sourceTree = "<group>"; };
+		9C47936C1E71404A00AD4289 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libcrypto.a"; sourceTree = "<group>"; };
+		9C47936D1E71404A00AD4289 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libssl.a"; sourceTree = "<group>"; };
+		9C47936E1E71404A00AD4289 /* libswresample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswresample.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libswresample.a"; sourceTree = "<group>"; };
+		9C47936F1E71404A00AD4289 /* libswscale.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libswscale.a; path = "SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS/libswscale.a"; sourceTree = "<group>"; };
 		9C5C6C9720182A4800863EB5 /* SGGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGLView.h; sourceTree = "<group>"; };
 		9C5C6C9820182A4800863EB5 /* SGGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGGLView.m; sourceTree = "<group>"; };
 		9C5C6CA82018952300863EB5 /* SGGLDisplayLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGGLDisplayLink.h; sourceTree = "<group>"; };
@@ -1281,11 +1288,11 @@
 				E2780D52216B6B56003E9D80 /* SGCodecContext.h in Headers */,
 				E2780D53216B6B56003E9D80 /* SGVideoToolBox.h in Headers */,
 				E2780D54216B6B56003E9D80 /* SGFFFrame.h in Headers */,
+				E2685F2521747C7100B5ADF1 /* SGGLViewport.h in Headers */,
 				E2780D55216B6B56003E9D80 /* SGSWSContext.h in Headers */,
 				E2780D56216B6B56003E9D80 /* SGGLDefines.h in Headers */,
 				E2780D57216B6B56003E9D80 /* SGGLBGRAProgram.h in Headers */,
 				E2780D58216B6B56003E9D80 /* SGFFDefines.h in Headers */,
-				E2780D59216B6B57003E9D80 /* SGVRMatrixMaker.h in Headers */,
 				E2780D5A216B6B57003E9D80 /* SGMotionSensor.h in Headers */,
 				9C2C55942015911600131E15 /* SGObjectPool.h in Headers */,
 				9C6E514F2018C6C100C87C54 /* SGGLModel.h in Headers */,
@@ -1307,7 +1314,6 @@
 				9CB1F0A320178B0E00102A69 /* SGPLFGLView.h in Headers */,
 				9C8D4E49200DFFC700ED8A58 /* SGSession.h in Headers */,
 				9CA3CDD020E2255700B852D0 /* SGAudioFFFrame.h in Headers */,
-				9CAAC9A02133A6800065E364 /* SGVRViewport.h in Headers */,
 				9CB62C002021950200A9AD6B /* SGSessionConfiguration.h in Headers */,
 				9CF15E082011AE0700585326 /* SGAudioPlaybackOutput.h in Headers */,
 				9CE6F5A32004E7ED00D1F4C8 /* SGMacro.h in Headers */,
@@ -1337,7 +1343,6 @@
 				9C1D2216201AC9FA005147FB /* SGGLProgramPool.h in Headers */,
 				9C2536511FAB199500BBFA5C /* SGPlayer.h in Headers */,
 				9C1D220E201AC83F005147FB /* SGGLModelPool.h in Headers */,
-				9C8D265A2019E1AC002770FA /* SGGLViewport.h in Headers */,
 				9CB61F602112B93C00F5BE6B /* SGFFmpeg.h in Headers */,
 				9C8D26622019F297002770FA /* SGGLTextureUploader.h in Headers */,
 				9CA3CDD820E2283500B852D0 /* SGVideoFFFrame.h in Headers */,
@@ -1358,7 +1363,6 @@
 				9CF15E212011BC5400585326 /* SGAudioFrame.h in Headers */,
 				9CE6F5492004D97D00D1F4C8 /* SGPLFObject.h in Headers */,
 				9C1D2217201AC9FA005147FB /* SGGLProgramPool.h in Headers */,
-				9C8D265B2019E1AC002770FA /* SGGLViewport.h in Headers */,
 				9CF15DE720118E1100585326 /* SGAsyncDecoder.h in Headers */,
 				9C8D26632019F297002770FA /* SGGLTextureUploader.h in Headers */,
 				9C2C55A52015C1E100131E15 /* SGVideoPlaybackOutput.h in Headers */,
@@ -1372,8 +1376,8 @@
 				9CE6F5552004D97D00D1F4C8 /* SGPLFView.h in Headers */,
 				9C6E51502018C6C100C87C54 /* SGGLModel.h in Headers */,
 				9C1D221E201ACA13005147FB /* SGGLProgram.h in Headers */,
+				E2685F2621747C7100B5ADF1 /* SGGLViewport.h in Headers */,
 				9CF52CF9200F45D700950B81 /* SGStream.h in Headers */,
-				9CAAC9A12133A6800065E364 /* SGVRViewport.h in Headers */,
 				E2C5D02B21706F6B0096708D /* SGAsset.h in Headers */,
 				9C19450B2019D22800184416 /* SGGLNV12Program.h in Headers */,
 				9CA3CDE120E2320F00B852D0 /* SGAudioBufferFrame.h in Headers */,
@@ -1784,7 +1788,6 @@
 				9C1944E520198CEC00184416 /* SGGLPlaneModel.m in Sources */,
 				9CF15DE920118E1100585326 /* SGAsyncDecoder.m in Sources */,
 				9CA3CDB520E1F74300B852D0 /* SGFrame.m in Sources */,
-				9C8D265D2019E1AC002770FA /* SGGLViewport.m in Sources */,
 				9C3FB66E20E32EA5003442EE /* SGGLTimer.m in Sources */,
 				9CF15E0B2011AE0700585326 /* SGAudioPlaybackOutput.m in Sources */,
 				9C5C98FF20D26BE10089C112 /* SGPlaybackTimeSync.m in Sources */,
@@ -1794,7 +1797,6 @@
 				9CE6F5442004D97D00D1F4C8 /* SGPLFImage.m in Sources */,
 				9C329AAF2005E3F800252B10 /* SGActivity.m in Sources */,
 				9CA3CDD320E2255700B852D0 /* SGAudioFFFrame.m in Sources */,
-				9CAAC9A32133A6800065E364 /* SGVRViewport.m in Sources */,
 				9C2C55A72015C1E100131E15 /* SGVideoPlaybackOutput.m in Sources */,
 				9C2C55972015911600131E15 /* SGObjectPool.m in Sources */,
 				9C1D2219201AC9FA005147FB /* SGGLProgramPool.m in Sources */,
@@ -1803,6 +1805,7 @@
 				9C2536541FAB199500BBFA5C /* SGPlayer.m in Sources */,
 				9C8D26652019F297002770FA /* SGGLTextureUploader.m in Sources */,
 				9C1944ED2019A9AA00184416 /* SGGLSphereModel.m in Sources */,
+				E2685F2721747C7600B5ADF1 /* SGGLViewport.m in Sources */,
 				9CE6F5602004D97D00D1F4C8 /* SGPLFGLContext.m in Sources */,
 				9CE6F5342004D97D00D1F4C8 /* SGPLFColor.m in Sources */,
 			);
@@ -1812,9 +1815,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2685ECD217471E400B5ADF1 /* SGDiscardFilter.m in Sources */,
+				E2685ECE217471E400B5ADF1 /* SGAsset.m in Sources */,
+				E2685ECF217471E400B5ADF1 /* SGURLAsset.m in Sources */,
+				E2685ED0217471E400B5ADF1 /* SGConcatAsset.m in Sources */,
+				E2685ED1217471E400B5ADF1 /* SGConcatSource.m in Sources */,
+				E2685ED2217471E400B5ADF1 /* SGFormatContext.m in Sources */,
+				E2685ED3217471E400B5ADF1 /* SGAudioDecoder.m in Sources */,
+				E2685ED4217471E400B5ADF1 /* SGVideoDecoder.m in Sources */,
+				E2685ED5217471E400B5ADF1 /* SGCodecContext.m in Sources */,
+				E2685ED6217471E400B5ADF1 /* SGVideoToolBox.m in Sources */,
+				E2685ED7217471E400B5ADF1 /* SGSWSContext.m in Sources */,
+				E2685ED8217471E400B5ADF1 /* SGGLBGRAProgram.m in Sources */,
 				9C329AB02005E3F800252B10 /* SGActivity.m in Sources */,
 				9C2C55982015911600131E15 /* SGObjectPool.m in Sources */,
-				9C8D265E2019E1AC002770FA /* SGGLViewport.m in Sources */,
 				9CF15E242011BC5400585326 /* SGAudioFrame.m in Sources */,
 				9CA3CDB620E1F74300B852D0 /* SGFrame.m in Sources */,
 				9C8D26662019F297002770FA /* SGGLTextureUploader.m in Sources */,
@@ -1847,7 +1861,6 @@
 				9C5C6CAF2018952300863EB5 /* SGGLDisplayLink.m in Sources */,
 				9C8D4E85200E1ACA00ED8A58 /* SGError.m in Sources */,
 				9CE6F5452004D97D00D1F4C8 /* SGPLFImage.m in Sources */,
-				9CAAC9A42133A6800065E364 /* SGVRViewport.m in Sources */,
 				9C2C55B22015D1D200131E15 /* SGPacket.m in Sources */,
 				9C2C55A02015B87400131E15 /* SGVideoFrame.m in Sources */,
 				9C1944FE2019C09D00184416 /* SGGLInternalProgram.m in Sources */,
@@ -1856,6 +1869,7 @@
 				9C2C55BA2015D92100131E15 /* SGObjectQueue.m in Sources */,
 				9C19450E2019D22800184416 /* SGGLNV12Program.m in Sources */,
 				9CF15DEA20118E1100585326 /* SGAsyncDecoder.m in Sources */,
+				E2685F2821747C7600B5ADF1 /* SGGLViewport.m in Sources */,
 				9CE6F5352004D97D00D1F4C8 /* SGPLFColor.m in Sources */,
 				9C2C55A82015C1E100131E15 /* SGVideoPlaybackOutput.m in Sources */,
 			);
@@ -2354,15 +2368,25 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/include\"";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/deps/ffmpeg/include",
+					"$(PROJECT_DIR)/deps/libkvazaar/include",
+					"$(PROJECT_DIR)/deps/libmp3lame/include",
+					"$(PROJECT_DIR)/deps/libogg/include",
+					"$(PROJECT_DIR)/deps/libopenh264/include",
+					"$(PROJECT_DIR)/deps/libopus/include",
+					"$(PROJECT_DIR)/deps/librtmp/include",
+					"$(PROJECT_DIR)/deps/libvorbis/include",
+					"$(PROJECT_DIR)/deps/libvpx/include",
+					"$(PROJECT_DIR)/deps/openssl/include",
+				);
 				INFOPLIST_FILE = SGPlayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS\"",
-					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS",
-					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-iOS",
-					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-macOS",
+					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-iOS",
+					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-macOS",
+					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS",
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";
@@ -2387,15 +2411,25 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/include\"";
+				HEADER_SEARCH_PATHS = (
+					"$(PROJECT_DIR)/deps/ffmpeg/include",
+					"$(PROJECT_DIR)/deps/libkvazaar/include",
+					"$(PROJECT_DIR)/deps/libmp3lame/include",
+					"$(PROJECT_DIR)/deps/libogg/include",
+					"$(PROJECT_DIR)/deps/libopenh264/include",
+					"$(PROJECT_DIR)/deps/libopus/include",
+					"$(PROJECT_DIR)/deps/librtmp/include",
+					"$(PROJECT_DIR)/deps/libvorbis/include",
+					"$(PROJECT_DIR)/deps/libvpx/include",
+					"$(PROJECT_DIR)/deps/openssl/include",
+				);
 				INFOPLIST_FILE = SGPlayer/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"\"$(SRCROOT)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS\"",
-					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-tvOS",
-					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-iOS",
-					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFPlayer/ffmpeg/lib-macOS",
+					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-iOS",
+					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-macOS",
+					"$(PROJECT_DIR)/SGPlayer/Classes/Core/SGFFmpeg/FFmpeg-4.0.2-lib-tvOS",
 				);
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "$(PROJECT_DIR)/SGPlayer/module.modulemap";

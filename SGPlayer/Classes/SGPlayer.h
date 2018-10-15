@@ -20,7 +20,7 @@ FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
 #import <SGPlayer/SGAudioFrame.h>
 #import <SGPlayer/SGVideoFrame.h>
 #import <SGPlayer/SGPLFImage.h>
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 #import <SGPlayer/SGVRViewport.h>
 #endif
 #import <SGPlayer/SGTime.h>
@@ -35,7 +35,7 @@ FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
 #import "SGAudioFrame.h"
 #import "SGVideoFrame.h"
 #import "SGPLFImage.h"
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 #import "SGVRViewport.h"
 #endif
 #import "SGTime.h"
@@ -167,7 +167,7 @@ FOUNDATION_EXPORT const unsigned char SGPlayerVersionString[];
 /**
  *  VR Viewport.
  */
-#if SGPLATFORM_TARGET_OS_IPHONE_OR_TV
+#if SGPLATFORM_TARGET_OS_IPHONE
 @property (nonatomic, strong) SGVRViewport * viewport;
 #endif
 
